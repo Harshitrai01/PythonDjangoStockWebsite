@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if ticker %}
+	{{ ticker }}
+{% endif %}
+  <div class="container">
+  <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="img-fluid" src="https://source.unsplash.com/1400x500/?stocks,trade" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Welcome To Stock Market Site</h5>
+        <p>Stocks, Market, Finance</p>
+        <button class="btn btn-danger">Stocks</button>
+        <button class="btn btn-success">Market</button>
+        <button class="btn btn-primary">Finance</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="img-fluid" src="https://source.unsplash.com/1400x500/?economy,finance" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Know Your Economy</h5>
+        <p>Stocks, Market, Finance</p>
+        <button class="btn btn-danger">Stocks</button>
+        <button class="btn btn-success">Market</button>
+        <button class="btn btn-primary">Finance</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="img-fluid" src="https://source.unsplash.com/1400x500/?cryptocurrency,investing" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Learn About Finance</h5>
+        <p>Stocks, Market, Finance</p>
+        <button class="btn btn-danger">Stocks</button>
+        <button class="btn btn-success">Market</button>
+        <button class="btn btn-primary">Finance</button>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+    </div>
+
+{% if api %}
+	{% if api == "Error..." %}
+		There was problem with your ticker symbol, please try again...
+	{% else %}
+		<!-- {{ api }} -->
+		<div class="container shadow-lg p-1 mb-5 mt-1 bg-body rounded ">
+			<h1 class="text-success mt-4">{{ api.Name }}</h1><br/>
+		</div>
+		
+		<h2 class="text-primary">Description:</h2>{{ api.Description }}<br/><br/>
+		<b>Exchange:</b> {{ api.Exchange }}<br/>
+		<b>Country:</b>  {{ api.Country }}<br/>
+		<b>Sector:</b>   {{ api.Sector }}<br/>
+		<b>M_Cap:</b>    {{ api.MarketCapitalization }}<br/>
+		<b>52Wk_High:</b>{{ api.52WeekHigh }}<br/>
+		<b>52Wk_Low:</b> {{ api.52WeekLow }}<br/>
+		<b>50_DMA:</b>   {{ api.50DayMovingAverage }}<br/>
+		<b>200_DMA:</b>  {{ api.200DayMovingAverage }}<br/>
+
+
+
+		
+
+		
+	
+	{% endif %}
+{% endif %}
+
+{% endblock %}
